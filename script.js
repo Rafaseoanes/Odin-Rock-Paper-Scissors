@@ -7,4 +7,9 @@ let getComputerChoise = function(){
     return availableOptions[index]
 }
 
-// console.log(getComputerChoise())
+// getPlayerChoice is a function that prompt the player to choose between ‘Rock’, ‘Paper’ or ‘Scissors’.
+ let getPlayerChoise = function(){
+    let playerChoise = prompt("Choose from 'rock', 'paper' or 'scissors'").toLocaleLowerCase()
+    return playerChoise
+ }
+//  console.log(getPlayerChoise(), getComputerChoise())
