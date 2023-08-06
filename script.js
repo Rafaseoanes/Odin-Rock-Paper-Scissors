@@ -14,26 +14,27 @@ let getPlayerChoise = function () {
   return playerChoise;
 };
 
-let computerScore = 0, playerScore = 0
+let computerScore = 0,
+  playerScore = 0;
 
 // playRound is a function that takes the two player choises and defines who wins’.
 let playRound = function (playerSelection, computerSelection) {
   if (
     playerSelection === "rock" ||
     playerSelection === "paper" ||
-    playerSelection === "scissor"
+    playerSelection === "scissors"
   ) {
     if (playerSelection === computerSelection) {
       return `You chose ${playerSelection} and the computer chose ${computerSelection}, is a tie!`;
     } else if (
       (playerSelection === "rock" && computerSelection === "scissors") ||
       (playerSelection === "paper" && computerSelection === "rock") ||
-      (playerSelection === "scissor" && computerSelection === "paper")
+      (playerSelection === "scissors" && computerSelection === "paper")
     ) {
-        playerScore += 1;
+      playerScore += 1;
       return `You chose ${playerSelection} and the computer chose ${computerSelection}, you win!`;
     } else {
-        computerScore += 1;
+      computerScore += 1;
       return `You chose ${playerSelection} and the computer chose ${computerSelection}, you lose!`;
     }
   } else {
@@ -43,19 +44,18 @@ let playRound = function (playerSelection, computerSelection) {
 
 //getWinner is a function that keeps defines who wins base on playerScore and computerScore
 function getWinner() {
-    if(playerScore > computerScore){
-        return `You have ${playerScore} points and the computer have ${computerScore} points. You win!`
-      }else{
-        return `You have ${playerScore} points and the computer have ${computerScore} points. You lose!`
-      }
+  if (playerScore > computerScore) {
+    return `You have ${playerScore} points and the computer have ${computerScore} points. You win!`;
+  } else {
+    return `You have ${playerScore} points and the computer have ${computerScore} points. You lose!`;
+  }
 }
 
 function game() {
-    
   for (let i = 0; i < 5; i++) {
     console.log(playRound(getPlayerChoise(), getComputerChoise()));
   }
-  console.log(getWinner())
+  console.log(getWinner());
 }
 
 game();
