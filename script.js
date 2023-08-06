@@ -12,4 +12,16 @@ let getComputerChoise = function(){
     let playerChoise = prompt("Choose from 'rock', 'paper' or 'scissors'").toLocaleLowerCase()
     return playerChoise
  }
-//  console.log(getPlayerChoise(), getComputerChoise())
+
+ // playRound is a function that takes the two player choises and defines who wins’.
+ let playRound = function(playerSelection, computerSelection){
+    if(playerSelection === computerSelection){
+        return `You chose ${playerSelection} and the computer chose ${computerSelection}, is a tie!`
+    }else if(playerSelection === "rock" && computerSelection === "scissors" || playerSelection === "paper" && computerSelection === "rock" || playerSelection === "scissor" && computerSelection === "paper"){
+        return `You chose ${playerSelection} and the computer chose ${computerSelection}, you win!`
+    }else{
+        return `You chose ${playerSelection} and the computer chose ${computerSelection}, you lose!`
+    }
+
+ }
+//  console.log(playRound(getPlayerChoise(), getComputerChoise()))
