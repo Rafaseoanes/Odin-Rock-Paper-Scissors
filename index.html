@@ -20,12 +20,24 @@
       <button id="paper">✋</button>
       <button id="scissors">✌️</button>
     </div>
-    <div id="results">
-        <div  class="showResults" >
-            <h3>Score</h3>
-            <h6>Computer Score: <span id="computerScore" >0</span></h6>
-            <h6>User Score: <span id="playerScore">0</span></h6>
+    <div id="resultsContainer" class="hideResults">
+      <div id="results">
+        <div>
+          <h3>Score</h3>
+          <h6>Computer Score: <span id="computerScore">0</span></h6>
+          <h6>User Score: <span id="playerScore">0</span></h6>
         </div>
+      </div>
+    </div>
+
+    <div id="hideWinnerContainer" class="hideWinnerContainer">
+      <div id="winnerContainer">
+        <div id="winner">
+          <h6 id="winnerText"></h6>
+          <h6>🎉🎉🎉</h6>
+          <button id="playAgain">Play Again</button>
+        </div>
+      </div>
     </div>
 
     <script src="script.js"></script>

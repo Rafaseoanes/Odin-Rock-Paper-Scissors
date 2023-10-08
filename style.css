@@ -1,10 +1,11 @@
-*{
+* {
     text-align: center;
 }
+
 button {
     height: 96px;
     width: 96px;
-    font-size: xx-large;
+    font-size: xxx-large;
 }
 
 #mainContainer {
@@ -18,8 +19,9 @@ button {
     display: flex;
     justify-content: center;
 }
+
 #results div {
-    background: rgba(240,246,252,.15);
+    background: rgba(240, 246, 252, .15);
     background: var(--background-bright);
     border: 1px solid #30363d;
     color: #e3e9f0;
@@ -32,13 +34,52 @@ button {
     border-radius: 6px;
     outline: none;
     text-align: left;
-    
+
 }
-#results div h3{
-    color: 	#ffbe33;
+
+#results div h3 {
+    color: #ffbe33;
     margin-top: 22px;
 }
-.showResults{
+
+.hideResults {
     display: none;
+}
+
+#winner {
+    background-color: rgb(22, 22, 22);
+    height: 280px;
+    width: 280px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#winner h6 {
+    margin: 36px;
+    margin-bottom: 12px;
+    font-size: xx-large;
+}
+#winner button {
+    height: 40px;
+    width: 120px;
+    font-size: small;
+    margin: 0px;
+}
+
+#winnerContainer {
+    background-color: rgba(42, 42, 42, 0.787);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(13.7px);
+    -webkit-backdrop-filter: blur(13.7px);
     
+}
+.hideWinnerContainer{
+    display: none;
 }

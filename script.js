@@ -1,32 +1,34 @@
 let computerScore = 0,
   playerScore = 0;
 
-const userRock = document.querySelector('#rock')
-const userPaper = document.querySelector('#paper')
-const userScissors = document.querySelector('#scissors')
+const userRock = document.querySelector("#rock");
+const userPaper = document.querySelector("#paper");
+const userScissors = document.querySelector("#scissors");
 
-const computerPoints = document.querySelector('#computerScore')
-const playerPoints = document.querySelector('#playerScore')
-const results = document.querySelector('.showResults')
+const computerPoints = document.querySelector("#computerScore");
+const playerPoints = document.querySelector("#playerScore");
+const results = document.querySelector("#resultsContainer");
+const winner = document.querySelector("#hideWinnerContainer");
+const winnerText = document.querySelector("#winnerText");
+const playAgainBtn = document.querySelector("#playAgain");
 
+userRock.addEventListener("click", () => {
+  console.log(playRound("rock", getComputerChoice()));
+  setResults();
+  setWinner();
+});
 
-userRock.addEventListener('click', ()=>{
-  console.log(playRound('rock', getComputerChoice()))
-  setResults()
-  setWinner()
-})
+userPaper.addEventListener("click", () => {
+  console.log(playRound("paper", getComputerChoice()));
+  setResults();
+  setWinner();
+});
 
-userPaper.addEventListener('click', ()=>{
-  console.log(playRound('paper', getComputerChoice()))
-  setResults()
-  setWinner()
-})
-
-userScissors.addEventListener('click', ()=>{
-  console.log(playRound('scissors', getComputerChoice()))
-  setResults()
-  setWinner()
-})
+userScissors.addEventListener("click", () => {
+  console.log(playRound("scissors", getComputerChoice()));
+  setResults();
+  setWinner();
+});
 
 // getComputerChoice is a function that randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’.
 let getComputerChoice = function () {
@@ -53,7 +55,6 @@ let getPlayerChoice = function () {
   }
   return playerChoice;
 };
-
 
 // playRound is a function that takes the two player choices and defines who wins’.
 let playRound = function (playerSelection, computerSelection) {
@@ -83,29 +84,35 @@ function getWinner() {
   }
 }
 
-let setResults = function(){
-  computerPoints.textContent = computerScore
-  playerPoints.textContent = playerScore
+let setResults = function () {
+  computerPoints.textContent = computerScore;
+  playerPoints.textContent = playerScore;
 
-  results.classList.toggle('showResults')
-}
+  results.classList.remove("hideResults");
+};
 
-let setWinner = function(){
-  if(playerScore === 5 || computerScore === 5){
-    if (playerScore === computerScore) {
-      console.log("there is a winner")
-      return `You have ${playerScore} points and the computer have ${computerScore} points. it's a tie!`;
-    } else if (playerScore > computerScore) {
-      console.log("there is a winner")
+let setWinner = function () {
+  if (playerScore === 5 || computerScore === 5) {
+    if (playerScore > computerScore) {
+      winnerText.textContent = "You won!!";
+      winner.classList.remove("hideWinnerContainer");
+      console.log("there is a winner");
       return `You have ${playerScore} points and the computer have ${computerScore} points. You win!`;
     } else {
-      console.log("there is a winner")
+      winnerText.textContent = "You loose!";
+      winner.classList.remove("hideWinnerContainer");
+      console.log("there is a winner");
       return `You have ${playerScore} points and the computer have ${computerScore} points. You lose!`;
     }
   }
-  
+};
 
-}
+playAgainBtn.addEventListener("click", () => {
+  winner.classList.add("hideWinnerContainer");
+  results.classList.add("hideResults");
+  computerScore = 0;
+  playerScore = 0;
+});
 // function game() {
 //   for (let i = 0; i < 5; i++) {
 //     console.log(playRound(getPlayerChoice(), getComputerChoice()));
