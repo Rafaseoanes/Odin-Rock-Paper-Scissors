@@ -11,6 +11,7 @@ const results = document.querySelector("#resultsContainer");
 const winner = document.querySelector("#hideWinnerContainer");
 const winnerText = document.querySelector("#winnerText");
 const playAgainBtn = document.querySelector("#playAgain");
+const gameText = document.querySelector('#game')
 
 userRock.addEventListener("click", () => {
   console.log(playRound("rock", getComputerChoice()));
@@ -38,51 +39,22 @@ let getComputerChoice = function () {
   return availableOptions[index];
 };
 
-// getPlayerChoice is a function that prompt the player to choose between ‘Rock’, ‘Paper’ or ‘Scissors’.
-let getPlayerChoice = function () {
-  let playerChoice;
-
-  while (
-    !(
-      playerChoice === "rock" ||
-      playerChoice === "paper" ||
-      playerChoice === "scissors"
-    )
-  ) {
-    playerChoice = prompt(
-      "Choose from 'rock', 'paper' or 'scissors'"
-    ).toLowerCase();
-  }
-  return playerChoice;
-};
-
 // playRound is a function that takes the two player choices and defines who wins’.
 let playRound = function (playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
-    return `You chose ${playerSelection} and the computer chose ${computerSelection}, is a tie!`;
+    gameText.textContent = `You chose ${playerSelection} and the computer chose ${computerSelection}, is a tie!`;
   } else if (
     (playerSelection === "rock" && computerSelection === "scissors") ||
     (playerSelection === "paper" && computerSelection === "rock") ||
     (playerSelection === "scissors" && computerSelection === "paper")
   ) {
     playerScore += 1;
-    return `You chose ${playerSelection} and the computer chose ${computerSelection}, you win!`;
+    gameText.textContent = `You chose ${playerSelection} and the computer chose ${computerSelection}, you win!`;
   } else {
     computerScore += 1;
-    return `You chose ${playerSelection} and the computer chose ${computerSelection}, you lose!`;
+    gameText.textContent = `You chose ${playerSelection} and the computer chose ${computerSelection}, you lose!`;
   }
 };
-
-//getWinner is a function that keeps defines who wins base on playerScore and computerScore
-function getWinner() {
-  if (playerScore === computerScore) {
-    return `You have ${playerScore} points and the computer have ${computerScore} points. it's a tie!`;
-  } else if (playerScore > computerScore) {
-    return `You have ${playerScore} points and the computer have ${computerScore} points. You win!`;
-  } else {
-    return `You have ${playerScore} points and the computer have ${computerScore} points. You lose!`;
-  }
-}
 
 let setResults = function () {
   computerPoints.textContent = computerScore;
@@ -96,13 +68,9 @@ let setWinner = function () {
     if (playerScore > computerScore) {
       winnerText.textContent = "You won!!";
       winner.classList.remove("hideWinnerContainer");
-      console.log("there is a winner");
-      return `You have ${playerScore} points and the computer have ${computerScore} points. You win!`;
     } else {
       winnerText.textContent = "You loose!";
       winner.classList.remove("hideWinnerContainer");
-      console.log("there is a winner");
-      return `You have ${playerScore} points and the computer have ${computerScore} points. You lose!`;
     }
   }
 };
@@ -110,14 +78,8 @@ let setWinner = function () {
 playAgainBtn.addEventListener("click", () => {
   winner.classList.add("hideWinnerContainer");
   results.classList.add("hideResults");
+  gameText.textContent = ""
   computerScore = 0;
   playerScore = 0;
 });
-// function game() {
-//   for (let i = 0; i < 5; i++) {
-//     console.log(playRound(getPlayerChoice(), getComputerChoice()));
-//   }
-//   console.log(getWinner());
-// }
 
-// game();
