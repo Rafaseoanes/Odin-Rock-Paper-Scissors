@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kimeiga/bahunya/dist/bahunya.min.css">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/kimeiga/bahunya/dist/bahunya.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
     <title>Odin Rock Paper Scissors</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="title">
-        <h1>Rock - Paper - Scissors</h1>
-        <p>Choose your option:</p>
+      <h1>Rock - Paper - Scissors</h1>
+      <p>Choose your option:</p>
     </div>
     <div id="mainContainer">
-        <button id="rock">✊</button>
-        <button id="paper">✋</button>
-        <button id="Scissors">✌️</button>
-
+      <button id="rock">✊</button>
+      <button id="paper">✋</button>
+      <button id="scissors">✌️</button>
+    </div>
+    <div id="results">
+        <div  class="showResults" >
+            <h3>Score</h3>
+            <h6>Computer Score: <span id="computerScore" >0</span></h6>
+            <h6>User Score: <span id="playerScore">0</span></h6>
+        </div>
     </div>
 
-
-
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

@@ -1,11 +1,31 @@
+let computerScore = 0,
+  playerScore = 0;
+
 const userRock = document.querySelector('#rock')
 const userPaper = document.querySelector('#paper')
 const userScissors = document.querySelector('#scissors')
 
+const computerPoints = document.querySelector('#computerScore')
+const playerPoints = document.querySelector('#playerScore')
+const results = document.querySelector('.showResults')
+
+
 userRock.addEventListener('click', ()=>{
-  
   console.log(playRound('rock', getComputerChoice()))
-  console.log('Good, rock')
+  setResults()
+  setWinner()
+})
+
+userPaper.addEventListener('click', ()=>{
+  console.log(playRound('paper', getComputerChoice()))
+  setResults()
+  setWinner()
+})
+
+userScissors.addEventListener('click', ()=>{
+  console.log(playRound('scissors', getComputerChoice()))
+  setResults()
+  setWinner()
 })
 
 // getComputerChoice is a function that randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’.
@@ -34,8 +54,6 @@ let getPlayerChoice = function () {
   return playerChoice;
 };
 
-let computerScore = 0,
-  playerScore = 0;
 
 // playRound is a function that takes the two player choices and defines who wins’.
 let playRound = function (playerSelection, computerSelection) {
@@ -65,6 +83,29 @@ function getWinner() {
   }
 }
 
+let setResults = function(){
+  computerPoints.textContent = computerScore
+  playerPoints.textContent = playerScore
+
+  results.classList.toggle('showResults')
+}
+
+let setWinner = function(){
+  if(playerScore === 5 || computerScore === 5){
+    if (playerScore === computerScore) {
+      console.log("there is a winner")
+      return `You have ${playerScore} points and the computer have ${computerScore} points. it's a tie!`;
+    } else if (playerScore > computerScore) {
+      console.log("there is a winner")
+      return `You have ${playerScore} points and the computer have ${computerScore} points. You win!`;
+    } else {
+      console.log("there is a winner")
+      return `You have ${playerScore} points and the computer have ${computerScore} points. You lose!`;
+    }
+  }
+  
+
+}
 // function game() {
 //   for (let i = 0; i < 5; i++) {
 //     console.log(playRound(getPlayerChoice(), getComputerChoice()));
