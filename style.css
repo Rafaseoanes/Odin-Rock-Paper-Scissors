@@ -1,0 +1,14 @@
+button{
+    height: 96px;
+    width: 96px;
+    font-size: xx-large;
+}
+#title{
+    text-align: center;
+}
+#mainContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}

@@ -1,3 +1,13 @@
+const userRock = document.querySelector('#rock')
+const userPaper = document.querySelector('#paper')
+const userScissors = document.querySelector('#scissors')
+
+userRock.addEventListener('click', ()=>{
+  
+  console.log(playRound('rock', getComputerChoice()))
+  console.log('Good, rock')
+})
+
 // getComputerChoice is a function that randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’.
 let getComputerChoice = function () {
   let availableOptions = ["rock", "paper", "scissors"];
@@ -55,11 +65,11 @@ function getWinner() {
   }
 }
 
-function game() {
-  for (let i = 0; i < 5; i++) {
-    console.log(playRound(getPlayerChoice(), getComputerChoice()));
-  }
-  console.log(getWinner());
-}
+// function game() {
+//   for (let i = 0; i < 5; i++) {
+//     console.log(playRound(getPlayerChoice(), getComputerChoice()));
+//   }
+//   console.log(getWinner());
+// }
 
-game();
+// game();
